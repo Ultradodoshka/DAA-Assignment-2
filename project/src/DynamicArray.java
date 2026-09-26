@@ -11,7 +11,6 @@ public class DynamicArray {
     }
 
     public int getSize() {
-        accesses++;
         return size;
     }
 
@@ -61,7 +60,8 @@ public class DynamicArray {
         if(index < 0 || index > size){
             throw new IndexOutOfBoundsException();
         }
-    return arr[index];
+        accesses++;
+        return arr[index];
     }
     public boolean contains(int x){
         for (int i = 0; i < size; i++) {
