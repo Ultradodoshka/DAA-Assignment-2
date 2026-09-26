@@ -3,7 +3,7 @@ public class DynamicArray {
     private int size;
     private int capacity;
 
-    public DynamicArray(int size){
+    public DynamicArray(){
         this.capacity= 10;
         this.arr = new int[capacity];
         this.size=0;

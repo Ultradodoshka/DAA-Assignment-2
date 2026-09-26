@@ -1,4 +1,4 @@
-public class LInkedList {
+public class LinkedList {
     private class Node{
         int data;
         Node next;
@@ -9,7 +9,7 @@ public class LInkedList {
     private Node head;
     private Node tail;
     private int size;
-    public LInkedList(){
+    public LinkedList(){
         this.size = 0;
     }
     public void add(int x){
