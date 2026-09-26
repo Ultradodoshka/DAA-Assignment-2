@@ -2,6 +2,7 @@ public class MinHeap {
     private int[] heap;
     private int size;
     private int capacity;
+    public long comparisons=0;
 
     public MinHeap() {
         this.capacity = 10;
@@ -43,9 +44,10 @@ public class MinHeap {
             int left = 2*i+1;
             int right = 2*i+2;
             int min = left;
-            if(right<left && heap[right] ==heap[left]){
+            if(right<size && heap[right] < heap[left]){
                 min = right;
             }
+            comparisons++;
             if(heap[i]<=heap[min]){break;}
             int temp = heap[i];
             heap[i] = heap[min];
@@ -57,6 +59,7 @@ public class MinHeap {
     private void siftUp(int i) {
         while (i > 0) {
             int parent = (i - 1) / 2;
+            comparisons++;
             if (heap[parent] <= heap[i]) break;
             int temp = heap[parent];
             heap[parent] = heap[i];
