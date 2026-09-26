@@ -9,6 +9,10 @@ public class DynamicArray {
         this.size=0;
     }
 
+    public int getSize() {
+        return size;
+    }
+
     private void resize(){
         capacity *=2;
         int[] newArr = new int[capacity];
