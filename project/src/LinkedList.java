@@ -10,6 +10,7 @@ public class LinkedList {
     private Node tail;
     private int size;
     public long accesses=0;
+    public long comparisons=0;
 
     public LinkedList(){
         this.size = 0;
@@ -37,10 +38,13 @@ public class LinkedList {
         if(index == 0){
             newNode.next = head;
             head = newNode;
+            accesses++;
         } else{
             Node current = head;
+            accesses++;
             for(int i = 0; i < index-1; i++){
                 current = current.next;
+                accesses++;
             }
             newNode.next = current.next;
             current.next = newNode;
@@ -49,20 +53,23 @@ public class LinkedList {
     }
 
     public int remove(int index){
-        if(index < 0 || index > size){ throw new IndexOutOfBoundsException();}
+        if(index < 0 || index >= size){ throw new IndexOutOfBoundsException();}
         int removed;
         if(index == 0){
+            accesses++;
             removed = head.data;
             head = head.next;
             if(head==null) tail = null;
         } else {
             Node current = head;
+            accesses++;
             for(int i = 0; i < index-1; i++){
                 current = current.next;
+                accesses++;
             }
             removed = current.next.data;
             current.next = current.next.next;
-            if(current==null) tail = current;
+            if(current.next==null) tail = current;
         }
         size--;
         return removed;
@@ -81,6 +88,7 @@ public class LinkedList {
     public boolean contains(int x) {
         Node current = head;
         while (current != null) {
+            comparisons++;
             if (current.data == x) return true;
             current = current.next;
         }
