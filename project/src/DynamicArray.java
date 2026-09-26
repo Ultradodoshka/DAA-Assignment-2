@@ -2,6 +2,7 @@ public class DynamicArray {
     private int[] arr;
     private int size;
     private int capacity;
+    public long accesses=0;
 
     public DynamicArray(){
         this.capacity= 10;
@@ -10,6 +11,7 @@ public class DynamicArray {
     }
 
     public int getSize() {
+        accesses++;
         return size;
     }
 

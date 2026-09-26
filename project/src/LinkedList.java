@@ -9,6 +9,8 @@ public class LinkedList {
     private Node head;
     private Node tail;
     private int size;
+    public long accesses=0;
+
     public LinkedList(){
         this.size = 0;
     }
@@ -71,6 +73,7 @@ public class LinkedList {
         Node current = head;
         for (int i = 0; i < index; i++) {
             current = current.next;
+            accesses++;
         }
         return current.data;
     }
